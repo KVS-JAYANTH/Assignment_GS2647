@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Registration Form</title>
+    </head>
+    <body bgcolor="aqua">
+        <h4 align="center">Registration Form</h4>
+        <form align="center">
+            First Name : <input type="text" name="fn" id="fn"><br><br>
+            Last Name : <input type="text" name="ln" id="ln"><br><br>
+            Date of Birth : <input type="date" name="dob" id="dob"><br><br>
+            Password : <input type="password" name="pwd" id="pwd"><br><br>
+            Confirm Password : <input type="password" name="cpwd" id="cpwd"><br><br>
+            Qualifications : 
+            <input type="checkbox" id="mba" name="mba" checked/>    
+            MBA   
+            <input type="checkbox" id="BTech" name="BTech" />    
+            BTech     
+            <input type="checkbox" id="MTech" name="MTech"/>    
+            MTech <br><br>   
+            Gender : 
+            <input type="radio"
+               id="male"
+               name="gender"> Male
+            <input type="radio"
+               id="female"
+               name="gender"> Female<br><br>
+            Country : 
+            <select name="country" id="country" value="Select a option">
+                <option value="India">India</option>
+                <option value="US">US</option>
+                <option value="UK">UK</option>
+              </select><br><br>
+            Mobile Number : <input type="number" name="phno" id="phno"><br><br>
+            Email : <input type="email" name="mail" id="mail"><br><br>
+            Comments : <textarea name="comments" id="comments" rows="6">Enter text here...</textarea><br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form> 
+    </body>
+</html>
