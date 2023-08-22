@@ -1,0 +1,12 @@
+A-I
+
+1.create table department(dept_no int primary key, dept_name text, dept_location text);
+2.create table employee (emp_no int primary key, emp_name text, emp_age int check (emp_age >= 18), emp_gender char(1) check (emp_gender in ('M', 'F')), dept_no int, foreign key (dept_no) references department(dept_no) on delete cascade);
+
+A-II
+
+1.create table Course(course_id int, course_name text);
+  create table Coursecopy as select * from Course;
+2.alter table course add(fee double, join_date date);
+  alter table course drop column fee, drop column join_date;
+  alter table course rename column course_id to id;
