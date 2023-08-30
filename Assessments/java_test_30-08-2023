@@ -1,0 +1,30 @@
+public class OrderedProductsDAO {
+    private static String url = "jdbc:mysql://localhost:3306/testing";
+
+    public void displayOrderedProductById(int productId) {
+        try (Connection con = DriverManager.getConnection(url, "root", "rootuser1");
+             PreparedStatement pst = con.prepareStatement("Select p.prod_id,prod_name,prod_desc,prod_price,prod_quantity,o.order_date from product p, ordered_products op,orders o where p.prod_id = op.prod_id and op.order_id = o.order_id and p.prod_id=?;"))
+        {
+            pst.setInt(1,productId);
+            ResultSet rs = pst.executeQuery();
+            System.out.println("Ordered Ordered Products by Product ID:");
+            while(rs.next())
+                System.out.println("Product ID: "+rs.getInt(1)+", Product Name: "+rs.getString(2)+", Product Description: "+rs.getString(3)+", Product Price: "+rs.getDouble(4)+", Product Quantity: "+rs.getInt(5)+", Ordered Date: "+rs.getString(6));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void displayOrderedProductsByOrderDate(String orderDate) {
+        try (Connection con = DriverManager.getConnection(url, "root", "rootuser1");
+             PreparedStatement pst1 = con.prepareStatement("Select p.prod_id,prod_name,prod_desc,prod_price,prod_quantity,o.order_date from product p, ordered_products op,orders o where p.prod_id = op.prod_id and op.order_id = o.order_id and o.order_date=?;"))
+        {
+            pst1.setString(1,orderDate);
+            ResultSet rs = pst1.executeQuery();
+            System.out.println("Ordered Ordered Products by Order ID:");
+            while(rs.next())
+                System.out.println("Product ID: "+rs.getInt(1)+", Product Name: "+rs.getString(2)+", Product Description: "+rs.getString(3)+", Product Price: "+rs.getDouble(4)+", Product Quantity: "+rs.getInt(5)+", Ordered Date: "+rs.getString(6));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
